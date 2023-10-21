@@ -13,5 +13,5 @@ streamlit run dashboard.py
 ## Dashboard Link
 ```
 Kunjungi dashboard online dengan klik link di bawah ini
-[LINK] (https://dcd-bike-sharing-project-zr.streamlit.app/)
+[LINK](https://dcd-bike-sharing-project-zr.streamlit.app/)
 ```
