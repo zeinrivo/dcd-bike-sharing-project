@@ -83,9 +83,6 @@ with col2:
     total_sum = reg_df.register_sum.sum()
     st.metric("Total Registered", value=total_sum)
 
-with col3:
-    total_sum = cas_df.casual_sum.sum()
-    st.metric("Total Casual", value=total_sum)
 
 st.subheader("Pada pukul berapa penyewaan sepeda terbanyak ?")
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(35, 15))
