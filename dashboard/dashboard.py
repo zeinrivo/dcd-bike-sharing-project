@@ -12,17 +12,7 @@ def get_total_count_by_hour_df(hour_df):
 def count_by_day_df(day_df):
     day_df_count_2011 = day_df.query(str('dteday >= "2011-01-01" and dteday < "2012-12-31"'))
     return day_df_count_2011
-
-def total_registered_df(day_df):
-   reg_df =  day_df.groupby(by="dteday").agg({
-      "registered": "sum"
-    })
-   reg_df = reg_df.reset_index()
-   reg_df.rename(columns={
-        "registered": "register_sum"
-    }, inplace=True)
-   return reg_df
-
+  
 def sum_order (hour_df):
     sum_order_items_df = hour_df.groupby("hours").count_cr.sum().sort_values(ascending=False).reset_index()
     return sum_order_items_df
@@ -66,7 +56,6 @@ main_df_hour = hours_df[(hours_df["dteday"] >= str(start_date)) &
 
 hour_count_df = get_total_count_by_hour_df(main_df_hour)
 day_df_count_2011 = count_by_day_df(main_df_days)
-reg_df = total_registered_df(main_df_days)
 sum_order_items_df = sum_order(main_df_hour)
 season_df = macem_season(main_df_hour)
 
@@ -76,10 +65,6 @@ col1, col2, col3 = st.columns(3)
 with col1:
     total_orders = day_df_count_2011.count_cr.sum()
     st.metric("Total Sharing Bike", value=total_orders)
-
-with col2:
-    total_sum = reg_df.register_sum.sum()
-    st.metric("Total Registered", value=total_sum)
 
 
 st.subheader("Pada pukul berapa penyewaan sepeda terbanyak ?")
