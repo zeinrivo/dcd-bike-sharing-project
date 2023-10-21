@@ -105,7 +105,7 @@ ax[1].tick_params(axis='x', labelsize=30)
 st.pyplot(fig)
 st.subheader("Pada musim apa penyewaan sepeda terbanyak ?")
 
-colors = ["#F08080", "#F08080", "#8B0000", "#F08080"]
+colors = ["#F08080", "#F08080", "#F08080", "#8B0000"]
 fig, ax = plt.subplots(figsize=(50, 30))
 sns.barplot(
         y="count_cr",
